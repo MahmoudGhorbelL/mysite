@@ -1,0 +1,65 @@
+{% extends 'magasin/base.html' %}
+{% block styles %}
+  <style>
+    .commande-card {
+      width: 22rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      margin-bottom: 10px;
+      background-color: #f9f9f9;
+    }
+    
+    .commande-card p {
+      margin: 0;
+      margin-bottom: 5px;
+    }
+    
+    .commande-card b {
+      font-weight: bold;
+    }
+    
+    .add-commande-form {
+      margin-top: 20px;
+    }
+    
+    .add-commande-form button {
+      padding: 10px 20px;
+      background-color: #004085b8;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+{% endblock %}
+{% block content %}
+  <div class="container-fluid mt-5">
+    <div class="row">
+      {% for commande in commandes %}
+        <div id="{{ commande.id }}" style="width: 18rem" class="commande-card">
+          <div>
+            <p>Date Commande : {{ commande.dateCde }}</p>
+            <p>
+              <b>Total Commande : {{ commande.totalCde }}</b>
+            </p>
+            <p>
+              <b>Prix : {{ commande.calculPrix }}</b>
+            </p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  <br /><br /><br />
+  <p>
+    <b>Ajouter une autre commande?</b>
+  </p>
+  <form method="post" class="add-commande-form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <br>
+    <button type="submit">Ajouter</button>
+    <br><br><br><br>
+  </form>
+{% endblock %}

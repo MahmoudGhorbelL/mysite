@@ -1,0 +1,61 @@
+{% extends 'magasin/base.html' %}
+{% block styles %}
+<style>
+  
+
+  .fournisseur-card {
+    width: 22rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+  }
+
+  .fournisseur-card p {
+    margin: 0;
+    margin-bottom: 5px;
+  }
+
+  .fournisseur-card b {
+    font-weight: bold;
+  }
+
+  .add-fournisseur-form {
+    margin-top: 20px;
+  }
+
+  .add-fournisseur-form button {
+    padding: 10px 20px;
+    background-color: #004085b8;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid mt-4">
+  <div class="row">
+    {% for fournisseur in fournisseurs %}
+    <div id="{{ fournisseur.id }}" class="fournisseur-card">
+      <div>
+        <p><b>{{ fournisseur.nom }}</b></p>
+        <p>{{ fournisseur.adresse }}</p>
+        <p>{{ fournisseur.email }}</p>
+        <p>{{ fournisseur.telephone }}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+<br><br><br>
+<p><b>Ajouter un autre fournisseur?</b></p>
+<form method="post" class="add-fournisseur-form">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Ajouter</button>
+</form>
+{% endblock %}

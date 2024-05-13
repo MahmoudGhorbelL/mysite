@@ -1,0 +1,117 @@
+<!DOCTYPE html">
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<title>Création d&#39;un design étape par étape - Etape n°1 : Le code xhtml</title>
+</head>
+<style>
+/* Reset default margin and padding */
+body, h1, h2, p, ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+/* Set background color and font styles */
+body {
+  background-color: #f2f2f2;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+}
+
+/* Set container styles */
+#conteneur {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Set header styles */
+#header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+#header a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 24px;
+}
+
+/* Set menu styles */
+#menu {
+  list-style: none;
+  margin: 10px 0;
+  text-align: center;
+}
+
+#menu li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+#menu li a {
+  display: block;
+  padding: 5px 10px;
+  color: #333;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: border-bottom-color 0.3s;
+}
+
+#menu li a:hover {
+  border-bottom-color: #333;
+}
+
+/* Set content styles */
+#contenu {
+  margin: 20px 0;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+p {
+  margin-bottom: 10px;
+}
+
+/* Set footer styles */
+#footer {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+</style>
+<body>
+<div id="conteneur">
+<h1 id="header"><a href="#" title="Colored Design - Accueil"><span>Environnement Django</span></a></h1>
+<nav>
+<ul id="menu">
+<li><a href="/magasin/">Application n°1 : Magasin</a></li>
+<li><a href="/blog/">Application n°2 : Blog</a></li>
+</ul>
+</nav>
+<div id="contenu">
+<h2>Django</h2>
+<p>
+    Django est un framework web écrit en Python, qui 
+    offre une multitude d’outils complets pour 
+    implémenter des applications web complètes. 
+</p>
+<footer>
+</div>
+<p id="footer">Découvrez le potentiel infini de Django pour créer des applications web puissantes et élégantes.</p>
+</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Détails du Produit</title>
+  <style>
+    /* Réinitialiser la marge et le padding par défaut */
+    body, h1, p {
+      margin: 0;
+      padding: 0;
+    }
+    
+    /* Définir les styles de fond et de police */
+    body {
+      background-color: #f2f2f2;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #333;
+  }
+    
+    /* Définir les styles du conteneur */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+    
+    /* Définir les styles du titre du poste */
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    
+    /* Définir les styles des métadonnées du poste */
+    .post-meta {
+      margin-bottom: 20px;
+      font-size: 14px;
+      color: #6c757d;
+    }
+    
+    /* Définir les styles du contenu du poste */
+    .post-content {
+      margin-bottom: 20px;
+      font-size: 16px;
+      color: #333;
+    }
+    
+    /* Définir les styles de l'image du poste */
+    .post-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    
+    /* Définir les styles du pied de page */
+    .footer {
+      background-color: #343a40;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      margin-top: 20px;
+      border-radius: 0 0 8px 8px;
+    }
+    
+    /* Responsive styles */
+    @media (max-width: 1440px) {
+      body {
+        font-size: 14px;
+      }
+      h1 {
+        font-size: 22px;
+      }
+      .post-meta {
+        font-size: 12px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .container {
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Titre du Poste : {{ post.title }}</h1>
+    <div class="post-meta">
+      <span>Slug : {{ post.slug }}</span><br>
+      <span>Auteur : {{ post.author }}</span><br>
+      <span>Modifier En: : {{ post.updated_on }}</span><br>
+      <span>Créer en : {{ post.created_on }}</span><br>
+      <span>Status : {{ post.status }}</span>
+    </div>
+    <div class="post-content">
+      <p>Contenu : {{ post.content }}</p>
+    </div>
+    {% if post.image %}
+    <div class="post-image">
+      <img src='/media/{{ post.image }}' alt="Image du Poste">
+    </div>
+    {% endif %}
+  </div>
+</body>
+</html>

@@ -1,0 +1,93 @@
+{% block content %}
+<style>
+    form {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      
+      h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+        margin-left: 670px;
+      }
+      
+      .alert {
+        margin-top: 10px;
+      }
+      
+      table {
+        margin-bottom: 20px;
+      }
+      
+      table tr td {
+        padding: 5px;
+      }
+      
+      button[type="submit"] {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      
+      button[type="submit"]:hover {
+        background-color: #555;
+      }
+      
+      div small {
+        display: block;
+        margin-top: 10px;
+        text-align: center;
+      }
+      
+      div small a {
+        color: #333;
+        text-decoration: none;
+        margin-right: 10px;
+      }
+      
+      div small a:hover {
+        text-decoration: underline;
+      }
+      </style>
+<h2>Se connecter </h2>
+<div>
+<form method="post">
+{% csrf_token %}
+{% if form.non_field_errors %}
+{% for error in form.non_field_errors %}
+<p class="alert alert-danger">{{ error }}</p>
+{% endfor %}
+{% endif %}
+<table>
+{% for field in form %}
+<tr>
+<td>{{ field.label_tag }}</td>
+<td>{{ field }}</td>
+</tr>
+{% endfor %}
+</table>
+<button type="submit">se connecter</button>
+</form>
+</div>
+<div>
+<small>
+Pas encore inscrit.e?
+<a href="{% url 'register' %}"> S'inscrire </a>
+
+<br>
+Mot de passe oublié ?
+<a href="{% url 'password_reset' %}">Renouveler mon mot de passe</a>
+</a>
+</small>
+</div>
+{% endblock %}

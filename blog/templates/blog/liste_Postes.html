@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Liste des Postes</title>
+  <style>
+    body {
+      background-color: #f2f2f2;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #333;
+      padding: 20px;
+    }
+    .heading-container {
+      margin-right: 500px;
+    }
+    h1 {
+      margin-bottom: 20px;
+      color: #106491;
+      margin-right: 500px;
+    }
+    
+    .add-button {
+      background-color: #106491;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      text-decoration: none;
+      cursor: pointer;
+      display: inline-block;
+      margin-bottom: 20px;
+      margin-right: 500px;
+    }
+    
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    
+    li {
+      margin-bottom: 20px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .post-link {
+      text-decoration: none;
+      color: #333;
+    }
+    
+    .post-actions {    
+      margin-right: 500px;
+      margin-bottom: 30px;
+      text-align: center; /* Center align the buttons */
+    }
+    
+    .post-actions button {
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      display: inline-block;
+      padding: 10px 30px;
+      margin-right: 2px;
+    }
+    .title-link {
+      text-decoration: none;
+      color: #333;
+    }
+    
+    .title-actions {    
+      margin-right: 655px;
+      margin-bottom: 30px;
+      text-align: center; /* Center align the buttons */
+    }
+    
+    .title-actions button {
+      background-color:#333;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      display: inline-block;
+      padding: 10px 30px;
+      margin-right: 65px;
+    }
+  </style>
+</head>
+<body>
+  <div class="title-actions">
+    <h1>Liste des Postes</h1>
+    <a href="/blog/ajouter/"><button type="button">Ajouter</button></a>
+  </div>
+    {% for post in postes %}
+      
+        {% include 'blog/detail_post.html' %}
+        <div class="post-actions">
+          <a href="{% url 'detail_poste' post.pk %}"><button type="button">Détails</button></a>
+          <a href="{% url 'modifier_poste' post.pk %}"><button type="button">Modifier</button></a>
+          <a href="{% url 'supprimer_poste' post.pk %}"><button type="button">Supprimer</button></a>
+        </div>
+      
+    {% endfor %}
+  
+</body>
+</html>

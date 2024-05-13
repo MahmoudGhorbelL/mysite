@@ -1,0 +1,56 @@
+{% extends 'magasin/base.html' %}
+{% load static %}
+{% block styles %}
+<style>
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .scrollable-container {
+        overflow-x: scroll;
+        border: #000000 1px solid;
+        white-space: nowrap;
+    }
+
+    .scrollable-content {
+        display: inline-block;
+        padding: 10px;
+        vertical-align: top;
+    }
+
+    .product-image {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+
+    .product-caption {
+        margin-top: 10px;
+        font-weight: bold;
+    }
+
+    .product-price {
+        margin-top: 5px;
+        font-size: 14px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="scrollable-container">
+        {% for article in list %}
+        <div class="scrollable-content">
+            <img src="{% static '' %}{{ article.img }}" class="product-image" alt="">
+            <figcaption class="product-caption">
+                {{ article.libelle }}
+            </figcaption>
+            <p class="product-price">{{ article.prix }} DT.</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

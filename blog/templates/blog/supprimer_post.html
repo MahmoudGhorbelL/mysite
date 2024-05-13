@@ -1,0 +1,64 @@
+<!-- Dans supprimer_produit.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Supprimer le Poste : {{ post.title }}</title>
+  </head>
+  <style>
+    body {
+      background-color: #f2f2f2;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #333;
+    }
+    
+    /* Set container styles */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Set title styles */
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    
+    /* Set form styles */
+    form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    button {
+      font-size: 14px;
+      padding: 10px 20px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    button:hover {
+      background-color: #555;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <h1>Êtes-vous sûr de vouloir supprimer le Produit ?</h1>
+      <form method="post">
+        {% csrf_token %}
+        <button type="submit">Oui, supprimer</button>
+      </form>
+    </div>
+  </body>
+</html>
